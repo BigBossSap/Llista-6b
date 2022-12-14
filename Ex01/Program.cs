@@ -23,7 +23,7 @@ El ISBN 843654201-0 és correcte. Per mirar-lo farem
             Console.WriteLine("ISBN: ");
             isbn = Console.ReadLine();
 
-            while (isbn.Length > 11)
+            while (isbn.Length!=11)
             {
                 Console.WriteLine("Invalid");
                 Console.WriteLine("ISBN: ");
@@ -34,10 +34,10 @@ El ISBN 843654201-0 és correcte. Per mirar-lo farem
             Console.WriteLine(num);
             caracter = isbn[10];
             
-            for (int i=0; i<=num.Length-1;i++)
+            for (int i=0; i<num.Length;i++)
             {
                 
-                individual = Convert.ToInt32(num[i]) -48;
+                individual = Convert.ToInt32(num[i]) -'0';
                 Console.WriteLine(individual);
                 suma += individual * j;
                 j++;
@@ -45,7 +45,7 @@ El ISBN 843654201-0 és correcte. Per mirar-lo farem
                  
             }
 
-            caracterNum = Convert.ToInt32(caracter)-48;
+            caracterNum = Convert.ToInt32(caracter)-'0';
             if (caracter == 'X' || caracter == 'x')
                 caracterNum = 10;
             if (suma%11==caracterNum)

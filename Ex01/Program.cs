@@ -14,13 +14,45 @@ El ISBN 843654201-0 és correcte. Per mirar-lo farem
 8*1+4*2+3*3+6*4+5*5+4*6+2*7+0*8+1*9=121
 121 MOD 11 = 0  dígit de control és 0. Si fos 10 seria X.*/
 
-            string isbn;
-
+            string isbn, num;
+            int individual, j = 1;
+            char caracter;
+            int caracterNum;
+            int suma = 0;
+            
             Console.WriteLine("ISBN: ");
             isbn = Console.ReadLine();
 
-            if(isbn.Length>11)
+            while (isbn.Length > 11)
+            {
                 Console.WriteLine("Invalid");
+                Console.WriteLine("ISBN: ");
+                isbn = Console.ReadLine();
+            }
+           
+            num = isbn.Substring(0, 9);
+            Console.WriteLine(num);
+            caracter = isbn[10];
+            
+            for (int i=0; i<=num.Length-1;i++)
+            {
+                
+                individual = Convert.ToInt32(num[i]) -48;
+                Console.WriteLine(individual);
+                suma += individual * j;
+                j++;
+               
+                 
+            }
+
+            caracterNum = Convert.ToInt32(caracter)-48;
+            if (caracter == 'X' || caracter == 'x')
+                caracterNum = 10;
+            if (suma%11==caracterNum)
+                Console.WriteLine("ISBN Correcte");
+            else
+                Console.WriteLine("ISBN Incorrecte");
+            
 
 
 
